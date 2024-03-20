@@ -38,17 +38,16 @@ class TCF:
             # Initialize an array to store the count of characters
             total_chars = np.zeros(256)
             
-            # Iterate through each token in the input string
-            for token in input_str.split():
-                # Initialize an array to store the count of characters in each token
-                chars = np.zeros(256)
+                # Initialize an array to store the count of characters
+            chars = np.zeros(256)
                 
-                # Count the occurrences of each character in the token
-                for char in token:
-                    chars[ord(char)] += 1
-                
-                # Accumulate the counts of characters in all tokens
-                total_chars += chars
+            # Count the occurrences of each character in the token
+            for char in input_str:
+                    if ord(char) < 256:
+                        chars[ord(char)] += 1
+
+            # Accumulate the counts of characters in all tokens
+            total_chars += chars
             
             # Calculate the Tokens Characters Frequency (TCF) for the input string
             tcf = total_chars / sum(total_chars)
